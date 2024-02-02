@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        Listen for music
+    </header>
+    <nav>
+        <a href="./index.html">Listen</a>
+        <a href="./form.html">Update</a>
+    </nav>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>Artist</th>
+                    <th>Art</th>
+                    <th>Duration</th>
+                    <th>Album</th>
+                </tr>
+            </thead>
+            <tbody id="dados">
+            </tbody>
+        </table>
+    </main>
+    <footer>
+        Copyright by Erick
+    </footer>
+</body>
+<script>
+    const dados = document.getElementById('dados');
+    fetch('http://localhost:3000/fichaplay')
+    .then(res => res.json())
+    .then(res => {
+        res.forEach(e =>{
+            dados.innerHTML += `<tr>
+                <td>${e.artist}</td>
+                <td>${e.art}</td>
+                <td>${e.duration}</td>
+                <td>${e.album}</td>
+            </tr>
+            `;
+        });
+    });
+</script>
+</html>

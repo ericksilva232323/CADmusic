@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MusListen</title>
+</head>
+<body>
+    <header>
+        <h1>Listar todos as Músicas</h1>
+    </header>
+    <nav>
+        <a href="./index.html">Listen</a>
+        <a href="./form.html">Update</a>
+    </nav>
+    <main>
+        <h2 id="erro"></h2>
+    </main>
+    <footer>by Wellington</footer>
+</body>
+<script>
+    //Obter a mensagem de erro da URL
+    const url = window.location.search
+    const params = new URLSearchParams(url)
+    const msg = params.get('erro');
+    const cod = params.get('err');
+    document.querySelector('#erro').innerHTML = msg
+    document.querySelector('#erro').innerHTML += "<br>Código do erro:" + cod
+</script>
+
+</html>
